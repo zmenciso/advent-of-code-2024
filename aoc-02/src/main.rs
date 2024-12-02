@@ -28,6 +28,7 @@ fn safety_check(v: &Vec<i32>, damper: bool) -> bool {
                             t.extend_from_slice(&v[j+1..]);
                             if safety_check(&t, true) { return true };
                         }
+                        break;
                     }
                 }
             }
