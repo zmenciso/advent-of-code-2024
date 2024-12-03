@@ -8,10 +8,7 @@ fn extract_inst(seq: &str, v: &mut Vec<Mult>) {
 
     for (_, [t]) in re.captures_iter(seq).map(|c| c.extract()) {
         let Some((a, b)) = t.split_once(',') else { return };
-        let m = Mult::new(
-            a.parse::<i32>().expect("Could not parse value"),
-            b.parse::<i32>().expect("Could not parse value"),
-        );
+        let m = Mult::new(a, b);
 
         v.push(m);
     }
