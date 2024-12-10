@@ -25,15 +25,15 @@ fn dfs(map: &Map, start: &Coord, path: &mut Vec<Coord>, paths: &mut Vec<Vec<Coor
 fn main() {
     let mut map = Map::new();
 
-	for line in io::stdin().lines() {
-		let line = line.expect("Could not read line");
-		if line.len() > 0 { map.read_line(&line) }
-	}
+    for line in io::stdin().lines() {
+        let line = line.expect("Could not read line");
+        if line.len() > 0 { map.read_line(&line) }
+    }
 
-	let trailheads = map.trailheads();
-	let mut sum = 0;
+    let trailheads = map.trailheads();
+    let mut sum = 0;
 
-	for head in trailheads {
+    for head in trailheads {
         let mut path = Vec::new();
         let mut paths = Vec::new();
         let mut visited: HashSet<Coord> = HashSet::new();
@@ -43,5 +43,5 @@ fn main() {
         sum += paths.len();
     }
 
-	println!("{}", sum);
+    println!("{}", sum);
 }
